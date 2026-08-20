@@ -5,8 +5,9 @@ import Home from './page'
 describe('Home', () => {
   it("identifica o Forms D'Rossi como Canal de Escuta", () => {
     const html = renderToStaticMarkup(<Home />)
+    const normalizedHtml = html.replace(/&#x27;|&#39;|&apos;/g, "'")
 
-    expect(html).toContain("Forms D'Rossi")
-    expect(html).toContain('Canal de Escuta')
+    expect(normalizedHtml).toContain("Forms D'Rossi")
+    expect(normalizedHtml).toContain('Canal de Escuta')
   })
 })
